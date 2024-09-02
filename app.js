@@ -31,7 +31,7 @@ const inicio = () => {
 btnPresupuesto.onclick = () => {
     tPresupuesto = (presupuesto.value);
     localStorage.setItem('presupuesto', tPresupuesto)
-    if (tPresupuesto <=0 && tPresupuesto=="") {
+    if (tPresupuesto <=0 || tPresupuesto=="") {
         Swal.fire({ icon: "error", title: "ERROR", text: "Presupuesto mayor a 0" });
         return;
     }
