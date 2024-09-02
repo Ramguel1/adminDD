@@ -32,7 +32,7 @@ btnPresupuesto.onclick = () => {
     tPresupuesto = (presupuesto.value);
     localStorage.setItem('presupuesto', tPresupuesto)
     if (tPresupuesto <=0 || tPresupuesto=="") {
-        Swal.fire({ icon: "error", title: "ERROR", text: "Presupuesto mayor a 0" });
+        Swal.fire({ icon: "error", title: "mal", text: "Presupuesto incorrecto" });
         return;
     }
 
@@ -49,11 +49,11 @@ const guardarGasto = () => {
     let costo = parseInt(document.getElementById("costo").value);
     let categoria = document.getElementById("categoria").value;
     if (descripcion.trim() == "" || document.getElementById("costo").value.trim() === "" || costo == 0 || categoria=="todos") {
-        Swal.fire({ icon: "error", title: "ERROR", text: "DATOS INCORRECTOS" });
+        Swal.fire({ icon: "error", title: "ERROR", text: "Datos incorrectos" });
         return;
     }
     if (costo > disponible ) {
-        Swal.fire({ icon: "error", title: "ERROR", text: "YA NO TIENES FONDOS" });
+        Swal.fire({ icon: "error", title: "ERROR", text: "Sin fondos" });
         return;
     }
     const gasto = { descripcion, costo, categoria }
@@ -146,13 +146,13 @@ const actualizarGasto = () => {
     let categoria = document.getElementById("ecategoria").value;
     let index = parseInt(document.getElementById("eindex").value);
     if (descripcion.trim() == "" || costo == 0) {
-        Swal.fire({ icon: "error", title: "ERROR", text: "Datos incorrectos" });
+        Swal.fire({ icon: "error", title: "mal", text: "Datos incorrectos" });
         return;
 
     }
     let costoAnterior = parseInt(gastos[index].costo);
     if (costo > (costoAnterior + disponible)) {
-        Swal.fire({ icon: "error", title: "ERROR", text: "Ya no tienes fondos" });
+        Swal.fire({ icon: "error", title: "mal", text: "Ya no tienes fondos" });
         return;
     }
     gastos[index].descripcion = descripcion;
