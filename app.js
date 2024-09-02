@@ -48,11 +48,11 @@ const guardarGasto = () => {
     let descripcion = document.getElementById("descripcion").value;
     let costo = parseInt(document.getElementById("costo").value);
     let categoria = document.getElementById("categoria").value;
-    if (descripcion.trim() == "" || document.getElementById("costo").value.trim() === "" || costo == 0) {
+    if (descripcion.trim() == "" || document.getElementById("costo").value.trim() === "" || costo == 0 || categoria=="todos") {
         Swal.fire({ icon: "error", title: "ERROR", text: "DATOS INCORRECTOS" });
         return;
     }
-    if (costo > disponible) {
+    if (costo > disponible ) {
         Swal.fire({ icon: "error", title: "ERROR", text: "YA NO TIENES FONDOS" });
         return;
     }
