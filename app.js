@@ -10,7 +10,7 @@ var disponible = 0;
 
 const inicio = () => {
     tPresupuesto = parseInt(localStorage.getItem("presupuesto"));
-    if (tPresupuesto > 0) {
+    if (tPresupuesto >= 0) {
         divPresupuesto.classList.remove("d-block")
         divGastos.classList.remove("d-none")
         divPresupuesto.classList.add("d-none")
